@@ -2,7 +2,7 @@ import React from 'react';
 import './Collection.css';
 import { Link } from 'react-router-dom';
 
-const Collection = () => {
+function Collection() {
   return (
     <section>
       <h2>Oops!</h2>
