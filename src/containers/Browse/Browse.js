@@ -7,10 +7,19 @@ function Browse({ series }) {
   const seriesButtons = series.map(series => {
     return <Link to={`series/${series}`}>{series}</Link>
   })
+
+  if (series.length) {
+    return (
+      <div>
+        <h2>Browse</h2>
+        {seriesButtons}
+      </div>
+    )
+  }
   return (
     <div>
       <h2>Browse</h2>
-      {seriesButtons}
+      <p>Loading...</p>
     </div>
   )
 }
