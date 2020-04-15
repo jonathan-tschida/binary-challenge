@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Collection from '../Collection/Collection';
+import Browse from '../Browse/Browse';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Collection />
         </Route>
         <Route path='/browse'>
+          <Browse />
         </Route>
       </Switch>
     </main>
