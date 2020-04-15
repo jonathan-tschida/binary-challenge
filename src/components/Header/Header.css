@@ -13,7 +13,7 @@ header nav {
   margin-right: 1em;
 }
 
-header a {
+a {
   display: inline-block;
   background-color: black;
   color: white;
@@ -31,6 +31,6 @@ header a.active {
   font-size: 1.25em;
 }
 
-header a:hover {
+a:hover {
   font-size: 1.25em;
 }
