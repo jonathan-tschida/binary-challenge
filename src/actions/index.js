@@ -1,7 +1,13 @@
-export const getSeries = (series) => ({
-  type: 'GET_SERIES',
+export const getSeriesNames = (series) => ({
+  type: 'GET_SERIES_NAMES',
   series
 })
+
+export const getSeriesData = (series) => ({
+  type: 'GET_SERIES_DATA',
+  series
+})
+
 
 // cache = {
 //   'Super Mario': {
