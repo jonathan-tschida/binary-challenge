@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Browse({ series }) {
   const seriesButtons = series.map(series => {
-    return <Link to={`series/${series}`}>{series}</Link>
+    return <Link to={`/browse/series/${series}`} key={series} >{series}</Link>
   })
 
   if (series.length) {
