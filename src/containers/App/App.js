@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Collection from '../Collection/Collection';
 import Browse from '../Browse/Browse';
+import Series from '../Series/Series';
 
 class App extends Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path='/browse'>
             <Browse />
           </Route>
+          <Route path='/series/:series' component={Series} />
         </Switch>
       </main>
     );
