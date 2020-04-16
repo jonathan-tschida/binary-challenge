@@ -3,12 +3,18 @@ import './Amiibo.css';
 
 function Amiibo(props) {
   const { id, name, image, series, release } = props;
+  const reformatDate = (date) => {
+    let [ year, month, day ] = date.split('-');
+    return [ month, day, year ].join('/');
+  }
   return (
     <article>
       <img src={image} alt={name} />
       <h3>{name}</h3>
-      <h4>{series}</h4>
-      <p>{release}</p>
+      <p>{series} series</p>
+      <p>Available {reformatDate(release)}</p>
     </article>
   )
 }
+
+export default Amiibo;
