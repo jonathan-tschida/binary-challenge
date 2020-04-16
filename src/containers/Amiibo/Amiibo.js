@@ -12,7 +12,7 @@ function Amiibo(props) {
       <img src={image} alt={name} />
       <h3>{name}</h3>
       <p>{series} series</p>
-      <p>Available {reformatDate(release)}</p>
+      {release && <p>Available {reformatDate(release)}</p>}
     </article>
   )
 }
