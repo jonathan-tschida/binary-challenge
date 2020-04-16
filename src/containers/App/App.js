@@ -29,10 +29,10 @@ class App extends Component {
           <Route path='/collection'>
             <Collection />
           </Route>
-          <Route path='/browse'>
+          <Route exact path='/browse'>
             <Browse />
           </Route>
-          <Route path='/series/:series' component={Series} />
+          <Route path='/browse/series/:series' component={Series} />
         </Switch>
       </main>
     );
