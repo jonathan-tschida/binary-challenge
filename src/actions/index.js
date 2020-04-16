@@ -3,9 +3,10 @@ export const getSeriesNames = (series) => ({
   series
 })
 
-export const getSeriesData = (series) => ({
+export const getSeriesData = (series, data) => ({
   type: 'GET_SERIES_DATA',
-  series
+  series,
+  data
 })
 
 
