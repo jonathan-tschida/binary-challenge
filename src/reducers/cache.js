@@ -3,10 +3,10 @@ export const cache = (state = {}, action) => {
     case 'GET_SERIES_NAMES':
       let previousState = {...state};
       let updatedState = action.series.reduce((updatedState, currentSeries) => {
-        const { name, key } = currentSeries;
+        const { name } = currentSeries;
         updatedState[name] = previousState[name] ?
-          { ...previousState[name], key } :
-          { key };
+          { ...previousState[name], figures: [] } :
+          { figures: [] };
         return updatedState;
       }, {})
       return {...updatedState}

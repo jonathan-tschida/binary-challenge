@@ -9,6 +9,11 @@ export const getSeriesData = (series, data) => ({
   data
 })
 
+export const toggleCollected = (id) => ({
+  type: 'TOGGLE_COLLECTED',
+  id
+})
+
 
 // cache = {
 //   'Super Mario': {
