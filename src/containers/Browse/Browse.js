@@ -10,17 +10,19 @@ function Browse({ series }) {
 
   if (series.length) {
     return (
-      <div>
+      <section>
         <h2>Browse</h2>
-        {seriesButtons}
-      </div>
+        <div className='browse-button-container'>
+          {seriesButtons}
+        </div>
+      </section>
     )
   }
   return (
-    <div>
+    <section>
       <h2>Browse</h2>
       <p>Loading...</p>
-    </div>
+    </section>
   )
 }
 
