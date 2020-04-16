@@ -1,5 +1,7 @@
 import React from 'react';
 import './Amiibo.css';
+import { toggleCollected } from '../../actions';
+import { connect } from 'react-redux';
 
 function Amiibo(props) {
   const { id, name, image, series, release } = props;
@@ -8,7 +10,7 @@ function Amiibo(props) {
     return [ month, day, year ].join('/');
   }
   return (
-    <article>
+    <article onClick={() => props.toggleCollected(id)}>
       <img src={image} alt={name} />
       <h3>{name}</h3>
       <p>{series} series</p>
@@ -17,4 +19,8 @@ function Amiibo(props) {
   )
 }
 
-export default Amiibo;
+const mapDispatchToProps = (dispatch) => ({
+  toggleCollected: (id) => dispatch( toggleCollected(id) )
+})
+
+export default connect(null, mapDispatchToProps)(Amiibo);
