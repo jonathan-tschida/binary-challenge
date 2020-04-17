@@ -7,21 +7,11 @@ function Browse({ series }) {
   const seriesButtons = series.map(series => {
     return <Link to={`/browse/series/${series}`} key={series} >{series}</Link>
   })
-
-  if (series.length) {
-    return (
-      <section>
-        <h2>Browse</h2>
-        <div className='browse-button-container'>
-          {seriesButtons}
-        </div>
-      </section>
-    )
-  }
   return (
     <section>
-      <h2>Browse</h2>
-      <p>Loading...</p>
+      <div className='browse-button-container'>
+        {series.length ? seriesButtons : <p>Loading...</p>}
+      </div>
     </section>
   )
 }
