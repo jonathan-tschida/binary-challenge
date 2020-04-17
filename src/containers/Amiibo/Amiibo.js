@@ -9,8 +9,11 @@ function Amiibo(props) {
     let [ year, month, day ] = date.split('-');
     return [ month, day, year ].join('/');
   }
+  const styling = props.collected ?
+    'amiibo-card collected' :
+    'amiibo-card';
   return (
-    <article className='amiibo-card' onClick={() => props.toggleCollected(id)}>
+    <article className={styling} onClick={() => props.toggleCollected(id)}>
       <img src={image} alt={name} />
       <h3>{name}</h3>
       <p>{series} series</p>
@@ -19,8 +22,12 @@ function Amiibo(props) {
   )
 }
 
+const mapStateToProps = (state, ownProps) => ({
+  collected: state.collection.includes(ownProps.id)
+})
+
 const mapDispatchToProps = (dispatch) => ({
   toggleCollected: (id) => dispatch( toggleCollected(id) )
 })
 
-export default connect(null, mapDispatchToProps)(Amiibo);
+export default connect(mapStateToProps, mapDispatchToProps)(Amiibo);

@@ -10,9 +10,10 @@
 }
 
 .amiibo-card:hover img {
+  filter: none;
   transform: scale(.95);
-  transition: transform .25s;
-  transition-timing-function: linear;
+  transition: transform .25s, filter .25s;
+  transition-timing-function: ease-in-out;
 }
 
 .amiibo-card:hover {
@@ -23,4 +24,11 @@
   max-height: 70%;
   max-width: 120%;
   transform: scale(.9);
+  filter: opacity(50%);
+  transition: transform .25s, filter .25s;
+  transition-timing-function: ease-in-out;
+}
+
+.collected img {
+  filter: none;
 }
