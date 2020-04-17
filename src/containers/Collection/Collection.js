@@ -13,7 +13,7 @@ function Collection({ figures }) {
     return (
       <section>
         <h1>Collection</h1>
-        <div>
+        <div className='amiibo-container' >
           {amiiboCards.length ? amiiboCards : <p>Loading...</p>}
         </div>
       </section>

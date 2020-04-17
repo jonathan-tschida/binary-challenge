@@ -10,7 +10,7 @@ function Amiibo(props) {
     return [ month, day, year ].join('/');
   }
   return (
-    <article onClick={() => props.toggleCollected(id)}>
+    <article className='amiibo-card' onClick={() => props.toggleCollected(id)}>
       <img src={image} alt={name} />
       <h3>{name}</h3>
       <p>{series} series</p>

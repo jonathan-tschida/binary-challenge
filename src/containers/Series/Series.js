@@ -24,7 +24,7 @@ class Series extends Component {
     return (
       <section>
         <h1>{series}</h1>
-        <div>
+        <div className='amiibo-container' >
           {amiiboCards.length ? amiiboCards : <p>Loading...</p>}
         </div>
       </section>
