@@ -5,7 +5,7 @@ import './Header.css';
 function Header() {
   return (
     <header>
-      <h1>amiibo depot</h1>
+      <img src='/amiibo-depot-logo.png' />
       <nav>
         <NavLink to='/browse'>Browse</NavLink>
         <NavLink to='/collection'>Collection</NavLink>

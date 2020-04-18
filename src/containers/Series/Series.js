@@ -7,9 +7,23 @@ import { getSeriesData } from '../../actions';
 class Series extends Component {
   componentDidMount() {
     let { series } = this.props.match.params;
+    this.props.recentlyFetched ||
     fetch('https://www.amiiboapi.com/api/amiibo/?type=figure&amiiboSeries=' + series)
       .then(response => response.json())
       .then(data => {
+        console.log('fetched')
+        this.props.getSeriesData(series, data.amiibo)
+      })
+      .catch(error => console.error(error.message))
+  }
+
+  componentDidUpdate() {
+    let { series } = this.props.match.params;
+    this.props.recentlyFetched ||
+    fetch('https://www.amiiboapi.com/api/amiibo/?type=figure&amiiboSeries=' + series)
+      .then(response => response.json())
+      .then(data => {
+        console.log('fetched')
         this.props.getSeriesData(series, data.amiibo)
       })
       .catch(error => console.error(error.message))
@@ -22,7 +36,7 @@ class Series extends Component {
       return <Amiibo {...figure} key={figure.id} />
     })
     return (
-      <section>
+      <section className='series' >
         <h1>{series}</h1>
         <div className='amiibo-container' >
           {amiiboCards.length ? amiiboCards : <p>Loading...</p>}
@@ -41,6 +55,7 @@ const mapStateToProps = (state, ownProps) => {
   let seriesCache = state.cache[series] || {};
   let figures = seriesCache.figures || [];
   return {
+    recentlyFetched: seriesCache.recentlyFetched || false,
     figures
   }
 }

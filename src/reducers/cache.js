@@ -12,7 +12,7 @@ export const cache = (state = {}, action) => {
       return {...updatedState}
     case 'GET_SERIES_DATA':
       let figures = action.data.map(reformatAmiiboData);
-      let updatedSeries = {...state[action.series], figures};
+      let updatedSeries = {...state[action.series], recentlyFetched: true, figures};
       return {...state, [action.series]: updatedSeries}
     default:
       return state
