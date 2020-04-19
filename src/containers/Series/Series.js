@@ -3,13 +3,13 @@ import './Series.css';
 import Amiibo from '../Amiibo/Amiibo';
 import { connect } from 'react-redux';
 import { getSeriesData } from '../../actions';
+import { fetchSeriesData } from '../../apiCalls'
 
 class Series extends Component {
   componentDidMount() {
     let { series } = this.props.match.params;
     this.props.recentlyFetched ||
-    fetch('https://www.amiiboapi.com/api/amiibo/?type=figure&amiiboSeries=' + series)
-      .then(response => response.json())
+    fetchSeriesData(series)
       .then(data => {
         this.props.getSeriesData(series, data.amiibo)
       })

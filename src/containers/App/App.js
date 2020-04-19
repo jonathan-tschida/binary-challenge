@@ -6,11 +6,11 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Collection from '../Collection/Collection';
 import Browse from '../Browse/Browse';
+import { fetchSeriesNames } from '../../apiCalls';
 
 class App extends Component {
   componentDidMount() {
-    fetch('https://www.amiiboapi.com/api/amiiboseries')
-      .then(response => response.json())
+    fetchSeriesNames()
       .then(data => {
         this.props.getSeriesNames(data.amiibo);
       })
