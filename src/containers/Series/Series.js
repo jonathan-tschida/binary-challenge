@@ -11,7 +11,6 @@ class Series extends Component {
     fetch('https://www.amiiboapi.com/api/amiibo/?type=figure&amiiboSeries=' + series)
       .then(response => response.json())
       .then(data => {
-        console.log('fetched')
         this.props.getSeriesData(series, data.amiibo)
       })
       .catch(error => console.error(error.message))
