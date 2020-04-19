@@ -11,9 +11,9 @@ function Collection({ figures }) {
       return <Amiibo {...figure} key={figure.id} />
     })
     return (
-      <section>
+      <section className='series' >
         <h1>Collection</h1>
-        <div>
+        <div className='amiibo-container' >
           {amiiboCards.length ? amiiboCards : <p>Loading...</p>}
         </div>
       </section>

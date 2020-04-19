@@ -1,0 +1,7 @@
+.browse-button-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2em 10%;
+}

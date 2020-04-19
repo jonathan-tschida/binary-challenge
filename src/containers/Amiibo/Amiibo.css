@@ -1,0 +1,63 @@
+.amiibo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 25em;
+  width: 15em;
+  padding: 1em;
+  color: #767676;
+}
+
+.amiibo-card h3 {
+  text-align: center;
+}
+
+.amiibo-card:hover img {
+  filter: none;
+  transform: scale(.95);
+  transition: transform .25s, filter .25s;
+  transition-timing-function: ease-in-out;
+}
+
+.amiibo-card:hover {
+  color: #0097ED;
+}
+
+.amiibo-card img {
+  max-height: 70%;
+  max-width: 120%;
+  transform: scale(.9);
+  filter: opacity(50%);
+  transition: transform .25s, filter .25s;
+  transition-timing-function: ease-in-out;
+}
+
+.popup {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .25);
+  border-radius: 1em;
+  padding: .5em 1em;
+  font-size: .8em;
+  position: absolute;
+  top: 40%;
+  z-index: 1;
+  filter: opacity(0);
+}
+
+.collected img {
+  filter: none;
+}
+
+.popup {
+  animation-name: fade-popup;
+  animation-duration: 1s;
+}
+
+@keyframes fade-popup {
+  0% {filter: opacity(1);}
+  50% {filter: opacity(1);}
+  100% {filter: opacity(0);}
+}
