@@ -22,4 +22,4 @@ describe('Collection Reducer', () => {
     const result = collection([id, '0000000000000002'], action);
     expect(result).toEqual(expectedResult);
   });
-})
+});

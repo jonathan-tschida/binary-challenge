@@ -11,7 +11,7 @@ function Header() {
         <NavLink to='/collection'>Collection</NavLink>
       </nav>
     </header>
-  )
-}
+  );
+};
 
 export default Header;

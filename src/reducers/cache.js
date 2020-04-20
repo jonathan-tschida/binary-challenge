@@ -8,8 +8,8 @@ export const cache = (state = {}, action) => {
           { ...previousState[name], figures: [] } :
           { figures: [] };
         return updatedState;
-      }, {})
-      return {...updatedState}
+      }, {});
+      return {...updatedState};
     case 'GET_SERIES_DATA':
       let figures = action.data.map(reformatAmiiboData);
       return {...state, [action.series]: {...state[action.series], recentlyFetched: true, figures} };
@@ -17,9 +17,9 @@ export const cache = (state = {}, action) => {
       let errorMessage = 'Sorry! Something went wrong!';
       return {...state, [action.series]: {...state[action.series], errorMessage} };
     default:
-      return state
-  }
-}
+      return state;
+  };
+};
 
 const reformatAmiiboData = (amiibo) => {
   let { head, tail, name, amiiboSeries, image, release } = amiibo;
@@ -29,5 +29,5 @@ const reformatAmiiboData = (amiibo) => {
     image,
     series: amiiboSeries,
     release: release.na
-  }
-}
+  };
+};

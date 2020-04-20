@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Browse from './Browse';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -17,8 +17,8 @@ function renderBrowse(testState) {
         <Browse />
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
 describe('Browse', () => {
   it('renders correctly', () => {
@@ -31,7 +31,7 @@ describe('Browse', () => {
           figures: []
         }
       }
-    }
+    };
     const { getByText } = renderBrowse(testState);
 
     expect(getByText('Super Smash Bros.')).toBeInTheDocument();
@@ -48,11 +48,11 @@ describe('Browse', () => {
           figures: []
         }
       }
-    }
+    };
     const { getByText, getAllByText } = renderBrowse(testState);
 
     fireEvent.click(getByText('Super Smash Bros.'));
 
     expect(getAllByText('Super Smash Bros.')[1]).toBeInTheDocument();
-  })
-})
+  });
+});

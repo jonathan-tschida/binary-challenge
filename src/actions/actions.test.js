@@ -62,4 +62,4 @@ describe('Action Creators', () => {
     const result = actions.toggleCollected(id);
     expect(result).toEqual(expectedResult);
   });
-})
+});

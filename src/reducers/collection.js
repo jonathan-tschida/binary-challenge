@@ -7,6 +7,6 @@ export const collection = (state = [], action) => {
         [...state, action.id];
       return updatedState.sort();
     default:
-      return state
-  }
-}
+      return state;
+  };
+};
