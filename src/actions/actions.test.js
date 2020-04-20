@@ -43,6 +43,16 @@ describe('Action Creators', () => {
     expect(result).toEqual(expectedResult);
   });
 
+  it('should have a type of MARK_BAD_FETCH and a correct payload', () => {
+    const series = 'Super Smash Bros.';
+    const expectedResult = {
+      type: 'MARK_BAD_FETCH',
+      series
+    };
+    const result = actions.markBadFetch(series);
+    expect(result).toEqual(expectedResult);
+  });
+
   it('should have a type of TOGGLE_COLLECTED and a correct payload', () => {
     const id = '0000000000000000';
     const expectedResult = {

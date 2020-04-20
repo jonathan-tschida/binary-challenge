@@ -12,8 +12,10 @@ export const cache = (state = {}, action) => {
       return {...updatedState}
     case 'GET_SERIES_DATA':
       let figures = action.data.map(reformatAmiiboData);
-      let updatedSeries = {...state[action.series], recentlyFetched: true, figures};
-      return {...state, [action.series]: updatedSeries}
+      return {...state, [action.series]: {...state[action.series], recentlyFetched: true, figures} };
+    case 'MARK_BAD_FETCH':
+      let errorMessage = 'Sorry! Something went wrong!';
+      return {...state, [action.series]: {...state[action.series], errorMessage} };
     default:
       return state
   }

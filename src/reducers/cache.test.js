@@ -7,7 +7,7 @@ describe('Cache Reducer', () => {
     expect(result).toEqual(expectedResult)
   });
 
-  it('when receiving GET_SERIES_NAMES, should add series properties to the cache', () => {
+  it('should add series properties to the cache when receiving GET_SERIES_NAMES', () => {
     const series = [
       {
         name: 'Super Smash Bros.',
@@ -34,7 +34,7 @@ describe('Cache Reducer', () => {
     expect(result).toEqual(expectedResult);
   });
 
-  it('when receiving GET_SERIES_DATA, should update the figures array of a series', () => {
+  it('should update the figures array of a series when receiving GET_SERIES_DATA', () => {
     const series = 'Super Smash Bros.';
     const data = [
       {
@@ -73,6 +73,34 @@ describe('Cache Reducer', () => {
           }
         ],
         recentlyFetched: true
+      },
+      'Legend of Zelda': {
+        figures: []
+      }
+    };
+    const result = cache(previousState, action);
+    expect(result).toEqual(expectedResult);
+  });
+
+  it('should add an errorMessage property to a series when recieving MARK_BAD_FETCH', () => {
+    const series = 'Super Smash Bros.';
+    const action = {
+      type: 'MARK_BAD_FETCH',
+      series
+    };
+    const previousState = {
+      'Super Smash Bros.': {
+        figures: []
+      },
+      'Legend of Zelda': {
+        figures: []
+      }
+    };
+    const errorMessage = 'Sorry! Something went wrong!';
+    const expectedResult = {
+      'Super Smash Bros.': {
+        figures: [],
+        errorMessage
       },
       'Legend of Zelda': {
         figures: []
