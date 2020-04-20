@@ -3,6 +3,7 @@ import './Browse.css';
 import Series from '../Series/Series'
 import { connect } from 'react-redux';
 import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Browse({ series }) {
   let { path, url } = useRouteMatch();
@@ -26,3 +27,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(Browse);
+
+Browse.propTypes = {
+  series: PropTypes.arrayOf(PropTypes.string)
+};

@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header';
 import Collection from '../Collection/Collection';
 import Browse from '../Browse/Browse';
 import { fetchSeriesNames } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   componentDidMount() {
@@ -42,3 +43,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(App);
+
+App.propTypes = {
+  getSeriesNames: PropTypes.func.isRequired
+};

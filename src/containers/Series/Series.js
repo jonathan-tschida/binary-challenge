@@ -3,7 +3,8 @@ import './Series.css';
 import Amiibo from '../Amiibo/Amiibo';
 import { connect } from 'react-redux';
 import { getSeriesData } from '../../actions';
-import { fetchSeriesData } from '../../apiCalls'
+import { fetchSeriesData } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 class Series extends Component {
   componentDidMount() {
@@ -58,3 +59,21 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Series);
+
+Series.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      series: PropTypes.string
+    })
+  }),
+  recentlyFetched: PropTypes.bool,
+  figures: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    series: PropTypes.string,
+    release: PropTypes.string,
+    collected: PropTypes.bool
+  })),
+  getSeriesData: PropTypes.func.isRequired
+};

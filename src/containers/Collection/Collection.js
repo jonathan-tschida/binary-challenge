@@ -4,6 +4,7 @@ import Amiibo from '../Amiibo/Amiibo';
 import { Link } from 'react-router-dom';
 import { toggleCollected } from '../../actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function Collection({ figures }) {
   if (figures.length) {
@@ -44,3 +45,15 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Collection);
+
+Collection.propTypes = {
+  figures: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    series: PropTypes.string,
+    release: PropTypes.string,
+    collected: PropTypes.bool
+  })),
+  toggleCollected: PropTypes.func.isRequired
+};
