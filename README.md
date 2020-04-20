@@ -1,4 +1,4 @@
-# Rancid Tomatillos
+# Amiibo Depot
 by Jonathan Tschida
 
 ## Overview
