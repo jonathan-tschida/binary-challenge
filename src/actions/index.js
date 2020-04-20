@@ -9,6 +9,11 @@ export const getSeriesData = (series, data) => ({
   data
 })
 
+export const markBadFetch = (series) => ({
+  type: 'MARK_BAD_FETCH',
+  series
+})
+
 export const toggleCollected = (id) => ({
   type: 'TOGGLE_COLLECTED',
   id

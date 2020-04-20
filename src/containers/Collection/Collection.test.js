@@ -22,7 +22,7 @@ describe('Collection', () => {
   it('renders a placeholder message when collection is empty', () => {
     const { getByText } = renderCollection();
 
-    expect(getByText('Oops!')).toBeInTheDocument();
+    expect(getByText('Welcome!')).toBeInTheDocument();
     expect(getByText('Looks like you don\'t have anything in your collection!')).toBeInTheDocument();
     expect(getByText('Click browse to get started!')).toBeInTheDocument();
     expect(getByText('Browse')).toBeInTheDocument();

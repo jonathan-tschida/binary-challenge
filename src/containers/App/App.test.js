@@ -41,7 +41,7 @@ describe('App', () => {
     const { getByText, getByAltText } = renderApp();
 
     expect(getByAltText('amiibo depot logo')).toBeInTheDocument();
-    expect(getByText('Oops!')).toBeInTheDocument();
+    expect(getByText('Welcome!')).toBeInTheDocument();
   });
 
   describe('Browse route', () => {
@@ -151,7 +151,7 @@ describe('App', () => {
       expect(getByAltText('Mario')).toBeInTheDocument();
 
       fireEvent.click(getByText('Collection'));
-      expect(getByText('Oops!')).toBeInTheDocument();
+      expect(getByText('Welcome!')).toBeInTheDocument();
       fireEvent.click(getAllByText('Browse')[0]);
       fireEvent.click(getByText('Super Smash Bros.'));
 
@@ -213,7 +213,7 @@ describe('App', () => {
       expect(getByAltText('Mario')).toBeInTheDocument();
       fireEvent.click(getByText('Mario'));
 
-      expect(getByText('Oops!')).toBeInTheDocument();
+      expect(getByText('Welcome!')).toBeInTheDocument();
     });
 
     it('also removes an amiibo from the collection from the series route', async () => {
@@ -245,7 +245,7 @@ describe('App', () => {
       fireEvent.click(getByText('Mario'));
       fireEvent.click(getByText('Collection'));
 
-      expect(getByText('Oops!')).toBeInTheDocument();
+      expect(getByText('Welcome!')).toBeInTheDocument();
     });
   });
 });
