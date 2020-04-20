@@ -19,10 +19,8 @@ class Series extends Component {
   componentDidUpdate() {
     let { series } = this.props.match.params;
     this.props.recentlyFetched ||
-    fetch('https://www.amiiboapi.com/api/amiibo/?type=figure&amiiboSeries=' + series)
-      .then(response => response.json())
+    fetchSeriesData(series)
       .then(data => {
-        console.log('fetched')
         this.props.getSeriesData(series, data.amiibo)
       })
       .catch(error => console.error(error.message))
