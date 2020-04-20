@@ -157,6 +157,18 @@ describe('App', () => {
 
       expect(getByAltText('Mario')).toBeInTheDocument();
     });
+
+    it('renders a fallback message when a fetch fails', async () => {
+      fetchSeriesData.mockRejectedValue(new Error('Failed to fetch'));
+      const { getByText } = renderApp('/browse');
+
+      await waitFor(() => getByText('Super Smash Bros.'));
+      fireEvent.click(getByText('Super Smash Bros.'));
+
+      await waitFor(() => getByText('Sorry! Something went wrong!'));
+
+      expect(getByText('Sorry! Something went wrong!')).toBeInTheDocument();
+    });
   });
 
   describe('Collection route', () => {
