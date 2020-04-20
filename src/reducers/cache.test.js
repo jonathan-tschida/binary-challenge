@@ -109,5 +109,4 @@ describe('Cache Reducer', () => {
     const result = cache(previousState, action);
     expect(result).toEqual(expectedResult);
   });
-
-})
+});

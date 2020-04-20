@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import App from './App';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
-import { createMemoryHistory } from 'history'
+import { createMemoryHistory } from 'history';
 import { fetchSeriesNames, fetchSeriesData } from '../../apiCalls.js';
 jest.mock('../../apiCalls.js');
 
@@ -21,7 +21,7 @@ fetchSeriesNames.mockResolvedValue({
       key: '0x01'
     }
   ]
-})
+});
 
 function renderApp(startingRoute) {
   const testStore = createStore(rootReducer);
@@ -33,8 +33,8 @@ function renderApp(startingRoute) {
         <App />
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
 describe('App', () => {
   it('renders the collection route on load', () => {

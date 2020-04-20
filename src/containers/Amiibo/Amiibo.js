@@ -6,10 +6,12 @@ import PropTypes from 'prop-types';
 
 function Amiibo(props) {
   const { id, name, image, series, release, collected } = props;
+
   const reformatDate = (date) => {
     let [ year, month, day ] = date.split('-');
     return [ month, day, year ].join('/');
-  }
+  };
+
   const styling = collected ?
     'amiibo-card collected' :
     'amiibo-card';
@@ -23,24 +25,24 @@ function Amiibo(props) {
       <p>{series} series</p>
       {release && <p>Available {reformatDate(release)}</p>}
     </article>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state, ownProps) => ({
   collected: state.collection.includes(ownProps.id)
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   toggleCollected: (id) => dispatch( toggleCollected(id) )
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Amiibo);
 
 function PopUp({ content }) {
   return (
     <p className='popup'>{content}</p>
-  )
-}
+  );
+};
 
 Amiibo.propTypes = {
   id: PropTypes.string,

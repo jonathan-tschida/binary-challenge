@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Series from './Series';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -22,8 +22,8 @@ function renderSeries(testState) {
         <Series match={mockMatch} />
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
 fetchSeriesData.mockResolvedValue({
   amiibo: [
@@ -57,4 +57,4 @@ describe('Series', () => {
     expect(getByText('Super Smash Bros.')).toBeInTheDocument();
     expect(getByText('Loading...')).toBeInTheDocument();
   });
-})
+});

@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Amiibo from './Amiibo';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ function renderAmiibo() {
         <Amiibo {...mockAmiibo} />
       </Router>
     </Provider>
-  )
+  );
 };
 
 const mockAmiibo = {
@@ -24,7 +24,7 @@ const mockAmiibo = {
   image: 'url.com/image.png',
   series: 'Super Smash Bros.',
   release: '2019-06-12'
-}
+};
 
 describe('Amiibo', () => {
   it('renders correcly', () => {
@@ -43,7 +43,7 @@ describe('Amiibo', () => {
     fireEvent.click(getByText('Mario'));
 
     expect(getByText('Added to collection')).toBeInTheDocument();
-  })
+  });
 
   it('should not be marked collected when clicked again', () => {
     const { getByText } = renderAmiibo();
@@ -53,6 +53,6 @@ describe('Amiibo', () => {
 
     fireEvent.click(getByText('Mario'));
     expect(getByText('Removed from collection')).toBeInTheDocument();
-  })
+  });
 
-})
+});

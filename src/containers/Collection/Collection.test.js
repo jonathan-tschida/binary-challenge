@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Collection from './Collection';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -15,8 +15,8 @@ function renderCollection(testState) {
         <Collection />
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
 describe('Collection', () => {
   it('renders a placeholder message when collection is empty', () => {
@@ -44,10 +44,10 @@ describe('Collection', () => {
         }
       },
       collection: ['0000000000000000']
-    }
+    };
     const { getByText } = renderCollection(testState);
 
     expect(getByText('Collection')).toBeInTheDocument();
     expect(getByText('Mario')).toBeInTheDocument();
-  })
-})
+  });
+});

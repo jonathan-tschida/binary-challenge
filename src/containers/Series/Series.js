@@ -18,8 +18,8 @@ class Series extends Component {
       .catch(error => {
         this.props.markBadFetch(series);
         console.error(error.message);
-      })
-  }
+      });
+  };
 
   componentDidUpdate() {
     let { series } = this.props.match.params;
@@ -32,8 +32,8 @@ class Series extends Component {
       .catch(error => {
         this.props.markBadFetch(series);
         console.error(error.message);
-      })
-  }
+      });
+  };
 
   render() {
     let { series } = this.props.match.params;
@@ -49,14 +49,14 @@ class Series extends Component {
           {amiiboCards.length ? amiiboCards : <p>{placeholderMessage}</p>}
         </div>
       </section>
-    )
-  }
-}
+    );
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getSeriesData: (series, data) => dispatch( getSeriesData(series, data) ),
   markBadFetch: (series) => dispatch( markBadFetch(series) )
-})
+});
 
 const mapStateToProps = (state, ownProps) => {
   let { series } = ownProps.match.params;
@@ -66,8 +66,8 @@ const mapStateToProps = (state, ownProps) => {
     recentlyFetched: seriesCache.recentlyFetched || false,
     errorMessage: seriesCache.errorMessage,
     figures
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Series);
 
@@ -78,6 +78,7 @@ Series.propTypes = {
     })
   }),
   recentlyFetched: PropTypes.bool,
+  errorMessage: PropTypes.string,
   figures: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
@@ -86,5 +87,6 @@ Series.propTypes = {
     release: PropTypes.string,
     collected: PropTypes.bool
   })),
-  getSeriesData: PropTypes.func.isRequired
+  getSeriesData: PropTypes.func.isRequired,
+  markBadFetch: PropTypes.func.isRequired
 };

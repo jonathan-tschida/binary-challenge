@@ -15,8 +15,8 @@ class App extends Component {
       .then(data => {
         this.props.getSeriesNames(data.amiibo);
       })
-      .catch(error => console.error(error.message))
-  }
+      .catch(error => console.error(error.message));
+  };
 
   render() {
     return (
@@ -32,11 +32,14 @@ class App extends Component {
           <Route path='/browse'>
             <Browse />
           </Route>
+          <Route path='*'>
+            <h1>404</h1>
+          </Route>
         </Switch>
       </main>
     );
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getSeriesNames: (series) => dispatch( getSeriesNames(series) )
