@@ -2,42 +2,51 @@ import React, { Component } from 'react';
 import './Series.css';
 import Amiibo from '../Amiibo/Amiibo';
 import { connect } from 'react-redux';
-import { getSeriesData } from '../../actions';
+import { getSeriesData, markBadFetch } from '../../actions';
 import { fetchSeriesData } from '../../apiCalls';
 import PropTypes from 'prop-types';
 
 class Series extends Component {
   componentDidMount() {
     let { series } = this.props.match.params;
-    this.props.recentlyFetched ||
+    let { errorMessage, recentlyFetched } = this.props;
+    (errorMessage || recentlyFetched) ||
     fetchSeriesData(series)
       .then(data => {
         this.props.getSeriesData(series, data.amiibo)
       })
-      .catch(error => console.error(error.message))
+      .catch(error => {
+        this.props.markBadFetch(series);
+        console.error(error.message);
+      })
   }
 
   componentDidUpdate() {
     let { series } = this.props.match.params;
-    this.props.recentlyFetched ||
+    let { errorMessage, recentlyFetched } = this.props;
+    (errorMessage || recentlyFetched) ||
     fetchSeriesData(series)
       .then(data => {
         this.props.getSeriesData(series, data.amiibo)
       })
-      .catch(error => console.error(error.message))
+      .catch(error => {
+        this.props.markBadFetch(series);
+        console.error(error.message);
+      })
   }
 
   render() {
     let { series } = this.props.match.params;
-    let { figures } = this.props;
+    let { figures, errorMessage } = this.props;
     let amiiboCards = figures.map(figure => {
       return <Amiibo {...figure} key={figure.id} />
-    })
+    });
+    let placeholderMessage = errorMessage ? errorMessage : 'Loading...';
     return (
       <section className='series' >
         <h1>{series}</h1>
         <div className='amiibo-container' >
-          {amiiboCards.length ? amiiboCards : <p>Loading...</p>}
+          {amiiboCards.length ? amiiboCards : <p>{placeholderMessage}</p>}
         </div>
       </section>
     )
@@ -45,7 +54,8 @@ class Series extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  getSeriesData: (series, data) => dispatch( getSeriesData(series, data) )
+  getSeriesData: (series, data) => dispatch( getSeriesData(series, data) ),
+  markBadFetch: (series) => dispatch( markBadFetch(series) )
 })
 
 const mapStateToProps = (state, ownProps) => {
@@ -54,6 +64,7 @@ const mapStateToProps = (state, ownProps) => {
   let figures = seriesCache.figures || [];
   return {
     recentlyFetched: seriesCache.recentlyFetched || false,
+    errorMessage: seriesCache.errorMessage,
     figures
   }
 }
