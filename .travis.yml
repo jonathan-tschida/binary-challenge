@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
+deploy:
+  api_key:
+    secure: DNStgEXJuXOm6ZDuBhySSAFcfpwNqKVfaGQM04n9rsDcppsFv6zsbQi9PQFf5SCgrEWvOF8Nh+LVN6ZE48SUsiWpl4SZiTjAoGCpo/yOuhQZYHT1M8NPfBgRisew0LKwq3jbZGltx3qexazwpVmRy6nUUFEpo9wCcgK18Ix/so4w80KE54QDEdnw0986+lvcqV4aO4M4hLQ/v3EAUUwwItPNYLDMr4y1Zq/hzv4t+U/dL9ZfQatM5a7HzgI/zejLax/qfHQVe2CRVE35Cb6OYvjm4lOf41kCCt6XTmgqhxsgc61B4yTpzsevotI8jO8Dpv4HWNonKIyq4nH6Xskz4edW+5yh97HFEME7basHZs0TDltubrHLPdZ7Y08o//HTc6fTLqVoGXcj+630ddCGoysYosTaDnRuj/i9JmhuMBc0JgPydRuCNfi3OjuuwGl+621j9RDH7S0xjvVpVsc7x2uStJWfY5JTpFLn/V9mZ+fqdfmc79vQXCjhYDQ6DCWg4QAfJygkQIK3c3vFW9OrC5o8tNciuYNhbtz24UhQhC9jH3zWictSyqF5Jz2jmIib78MsRfjv6sbbyk2bF0RcwFoj+KdN9i7cZYbx/f2WVfov6Y5Og6BvLdSxLNJitRZn2H+UhN36BGVnwDZpA+ZFUlGcV/4HCYtvMR3TTCv3w34=
+  app: https://amiibo-depot.herokuapp.com/collection
+  skip_cleanup: true
