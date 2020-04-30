@@ -23,7 +23,7 @@ describe('Collection', () => {
     const { getByText } = renderCollection();
 
     expect(getByText('Welcome!')).toBeInTheDocument();
-    expect(getByText('Looks like you don\'t have anything in your collection!')).toBeInTheDocument();
+    expect(getByText('It looks like you don\'t have anything in your collection!')).toBeInTheDocument();
     expect(getByText('Click browse to get started!')).toBeInTheDocument();
     expect(getByText('Browse')).toBeInTheDocument();
   });
