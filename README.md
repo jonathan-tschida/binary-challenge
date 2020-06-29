@@ -1,4 +1,7 @@
 # Amiibo Depot
+
+[Demo](https://amiibo-depot.herokuapp.com/)
+
 by Jonathan Tschida
 
 ## Overview
