@@ -23,7 +23,7 @@ function Collection({ figures }) {
   return (
     <section className='empty-collection-message'>
       <h2>Welcome!</h2>
-      <p>Looks like you don't have anything in your collection!</p>
+      <p>It looks like you don't have anything in your collection!</p>
       <p>Click browse to get started!</p>
       <Link to='/browse'>Browse</Link>
     </section>
